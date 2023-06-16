@@ -31,6 +31,10 @@ jobs:
       - name: Install dependencies
         run: nci
 
+        # Used to build the package
+      - name: Prepare
+        run: nr dev:prepare
+
       - run: pnpm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
