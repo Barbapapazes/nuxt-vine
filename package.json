@@ -1,6 +1,6 @@
 {
   "name": "nuxt-vine",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A module to easily use VineJS in Nuxt",
   "repository": "barbapapazes/nuxt-vine",
   "license": "MIT",
