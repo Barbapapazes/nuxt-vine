@@ -1,4 +1,4 @@
-import { createTaskValidator } from "../../validators/createTaskValidator";
+import { createTaskValidator } from '../../validators/createTaskValidator'
 
 export default defineEventHandler(async (event) => {
   const { title } = await validateBody(event, createTaskValidator)
@@ -9,4 +9,4 @@ export default defineEventHandler(async (event) => {
   // })
 
   return title
-});
+})

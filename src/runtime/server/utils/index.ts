@@ -1,39 +1,40 @@
-import { type H3Event, getQuery, readBody, createError } from "h3";
-import vine, { errors, VineObject } from '@vinejs/vine'
+import { type H3Event, createError, getQuery, readBody } from 'h3'
+import vine, { VineObject, errors } from '@vinejs/vine'
 
 export const v = vine
 
 async function validate(data: any, schema: any) {
   try {
     // If pre-compiled schema (https://vinejs.dev/docs/getting_started#pre-compiling-schema)
-    if (typeof schema?.validate === 'function') {
+    if (typeof schema?.validate === 'function')
       return await schema.validate(data)
-    }
+
     // If schema is a JS object, wrap it with VineObject
-    if (schema instanceof VineObject === false) {
+    if (schema instanceof VineObject === false)
       schema = v.object(schema)
-    }
+
     return await v.validate({
       data,
-      schema
+      schema,
     })
-  } catch (error: any) {
+  }
+  catch (error: any) {
     if (error instanceof errors.E_VALIDATION_ERROR) {
       throw createError({
         statusCode: 400,
         message: error.message,
-        data: error.messages
+        data: error.messages,
       })
     }
     throw createError({
       statusCode: 500,
-      message: error.message || 'Internal server error'
+      message: error.message || 'Internal server error',
     })
   }
 }
 
 export async function validateParams(event: H3Event, schema: any) {
-  return validate(event.context.params || {}, schema);
+  return validate(event.context.params || {}, schema)
 }
 
 export async function validateQuery(event: H3Event, schema: any) {

@@ -55,7 +55,7 @@ export default defineEventHandler(async (event) => {
   // If validation failed, an error will be thrown and handled by this package.
 
   return title
-});
+})
 ```
 
 `v` is an alias for `vine`.

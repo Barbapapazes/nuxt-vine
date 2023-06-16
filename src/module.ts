@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver } from '@nuxt/kit'
+import { createResolver, defineNuxtModule } from '@nuxt/kit'
 import { defu } from 'defu'
 
 // Module options TypeScript interface definition
@@ -9,12 +9,12 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'nuxt-vine',
     configKey: 'nuxtVine',
     compatibility: {
-      nuxt: '^3.0.0'
-    }
+      nuxt: '^3.0.0',
+    },
   },
   // Default configuration options of the Nuxt module
   defaults: {},
-  setup (options, nuxt) {
+  setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
     nuxt.hook('nitro:config', (config) => {
@@ -22,10 +22,10 @@ export default defineNuxtModule<ModuleOptions>({
         presets: [
           {
             from: resolver.resolve('./runtime/server/utils/index'),
-            imports: ['v', 'validateParams', 'validateQuery', 'validateBody']
-          }
+            imports: ['v', 'validateParams', 'validateQuery', 'validateBody'],
+          },
         ],
       })
     })
-  }
+  },
 })
