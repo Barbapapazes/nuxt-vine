@@ -93,6 +93,8 @@ npm run test:watch
 npm run release
 ```
 
+Thanks [Atinux](https://github.com/atinux) for the initial works!
+
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-vine/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
 [npm-version-href]: https://npmjs.com/package/nuxt-vine
