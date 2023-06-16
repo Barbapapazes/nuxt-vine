@@ -37,6 +37,9 @@ devDependencies:
   changelogen:
     specifier: ^0.5.3
     version: 0.5.3
+  defu:
+    specifier: ^6.1.2
+    version: 6.1.2
   eslint:
     specifier: ^8.42.0
     version: 8.42.0
